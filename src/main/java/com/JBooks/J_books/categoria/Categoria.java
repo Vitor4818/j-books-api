@@ -1,6 +1,6 @@
 package com.JBooks.J_books.categoria;
 
-public enum categorias {
+public enum Categoria {
     FICCAO,
     TERROR,
     ROMANCE,
