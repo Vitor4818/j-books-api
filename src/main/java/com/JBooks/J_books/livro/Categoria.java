@@ -1,4 +1,4 @@
-package com.JBooks.J_books.categoria;
+package com.JBooks.J_books.livro;
 
 public enum Categoria {
     FICCAO,
