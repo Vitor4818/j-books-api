@@ -2,6 +2,7 @@ package com.JBooks.J_books.controller;
 
 
 import com.JBooks.J_books.DTO.DadosCadastroCategorias;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class CategoriaController {
 
 
     @PostMapping
-    public void adicionarCategoria(@RequestBody DadosCadastroCategorias dados) {
+    public void adicionarCategoria(@RequestBody @Validated DadosCadastroCategorias dados) {
         repository.add(dados);
         System.out.println("Dados adicionados!\n"+dados);
     }

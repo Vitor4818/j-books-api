@@ -3,17 +3,15 @@ package com.JBooks.J_books.model;
 
 import com.JBooks.J_books.DTO.DadosCadastroLivros;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 //geram os construtores com e sem parâmetros.
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Entity //Transforma a classe em entidade JPA
+@Entity (name = "livro") //Transforma a classe em entidade JPA
 @Table (name = "livros") //define o nome da tabela no banco (opcional).
+@EqualsAndHashCode(of = "id")
 public class Livro {
 
     @Id //indicam a chave primária
