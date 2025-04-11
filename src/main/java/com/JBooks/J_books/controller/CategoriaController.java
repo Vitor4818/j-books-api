@@ -1,7 +1,7 @@
 package com.JBooks.J_books.controller;
 
 
-import com.JBooks.J_books.categoria.DadosCadastroCategorias;
+import com.JBooks.J_books.DTO.DadosCadastroCategorias;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
