@@ -1,6 +1,7 @@
 package com.JBooks.J_books.model;
 
 
+import com.JBooks.J_books.DTO.DadosAtualizarLivro;
 import com.JBooks.J_books.DTO.DadosCadastroLivros;
 import jakarta.persistence.*;
 import lombok.*;
@@ -28,4 +29,21 @@ public class Livro {
         this.descricao = dados.descricao();
         this.categoria = dados.categoria();
     }
+
+    public void atualizarDados(DadosAtualizarLivro dados) {
+        if (dados.nome() != null && !dados.nome().isBlank()) {
+            this.nome = dados.nome();
+        }
+        if (dados.autor() != null && !dados.autor().isBlank()) {
+            this.autor = dados.autor();
+        }
+        if (dados.descricao() != null && !dados.descricao().isBlank()) {
+            this.descricao = dados.descricao();
+        }
+        if (dados.categoria() != null && !dados.categoria().isBlank()) {
+            this.categoria = dados.categoria();
+        }
+    }
+
+
 }

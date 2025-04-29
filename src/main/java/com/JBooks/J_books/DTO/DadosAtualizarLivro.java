@@ -1,10 +1,11 @@
 package com.JBooks.J_books.DTO;
 
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record DadosCadastroLivros(
+public record DadosAtualizarLivro(
+        @NotNull
+        Long id,
         @NotBlank
         String nome,
         @NotBlank
@@ -12,5 +13,7 @@ public record DadosCadastroLivros(
         @NotBlank
         String descricao,
         @NotBlank
-        String categoria) {
+        String categoria
+) {
+
 }
