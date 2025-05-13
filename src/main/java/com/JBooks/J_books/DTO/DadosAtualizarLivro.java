@@ -1,5 +1,7 @@
 package com.JBooks.J_books.DTO;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -13,7 +15,11 @@ public record DadosAtualizarLivro(
         @NotBlank
         String descricao,
         @NotBlank
-        String categoria
+        String categoria,
+        @Max(3)
+        @Min(1)
+        @NotNull
+        Integer statusId
 ) {
 
 }

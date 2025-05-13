@@ -13,19 +13,30 @@ public class LivroSpecification {
         return (root, query, cb)->{
             List<Predicate> predicates = new ArrayList<>();
 
+            // Filtro por nome
             if(filter.nome() != null){
                 predicates.add(cb.like(
-                        cb.lower(root.get("nome")), "%" +filter.nome().toLowerCase()+"%"));
+                        cb.lower(root.get("nome")), "%" + filter.nome().toLowerCase() + "%"));
             }
+
+            // Filtro por autor
             if(filter.autor() != null){
-                predicates.add(
-                        cb.like(
-                                cb.lower(root.get("autor")), "%" + filter.autor().toLowerCase()+"%"));
-            }
-            if(filter.categoria()!= null){
                 predicates.add(cb.like(
-                        cb.lower(root.get("categoria")), "%" +filter.categoria().toLowerCase()+"%"));
+                        cb.lower(root.get("autor")), "%" + filter.autor().toLowerCase() + "%"));
             }
+
+            // Filtro por categoria
+            if(filter.categoria() != null){
+                predicates.add(cb.like(
+                        cb.lower(root.get("categoria")), "%" + filter.categoria().toLowerCase() + "%"));
+            }
+
+            // Filtro por statusId
+            if(filter.statusId() != null){
+                predicates.add(cb.equal(root.get("statusId"), filter.statusId()));
+            }
+
+            // Combina todas as condições
             var arrayPredicates = predicates.toArray(new Predicate[0]);
             return cb.and(arrayPredicates);
         };
