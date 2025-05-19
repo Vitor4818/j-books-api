@@ -23,7 +23,6 @@ public class AutenticacaoService implements UserDetailsService {
                 return User.builder()
                         .username(usuario.getEmail())
                         .password(usuario.getPassword())
-                        .roles("USER")
                         .build();
 
     }

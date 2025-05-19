@@ -13,9 +13,10 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
     private final Algorithm algorithm = Algorithm.HMAC256("segredo-super-seguro");
-    private final Instant expiresAt = LocalDateTime.now().plusMinutes(120).toInstant(ZoneOffset.ofHours(-3));
 
     public Token criarToken(Usuario usuario) {
+       Instant expiresAt = LocalDateTime.now().plusMinutes(120).toInstant(ZoneOffset.ofHours(-3));
+
         var jwt = JWT.create()
                 .withSubject(usuario.getId().toString())
                 .withClaim("email", usuario.getEmail())
