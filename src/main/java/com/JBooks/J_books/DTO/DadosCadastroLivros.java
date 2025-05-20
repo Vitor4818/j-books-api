@@ -1,6 +1,7 @@
 package com.JBooks.J_books.DTO;
 
 
+import com.JBooks.J_books.model.Usuario;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -18,5 +19,7 @@ public record DadosCadastroLivros(
         @NotNull
         @Min(1)
         @Max(3)
-        int statusId) {
+        int statusId,
+        Long usuarioId
+        ) {
 }

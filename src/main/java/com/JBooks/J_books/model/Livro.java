@@ -6,8 +6,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+
 
 // Gera os construtores com e sem parâmetros.
 @AllArgsConstructor
@@ -36,7 +37,11 @@ public class Livro {
 
     @Min(1)
     @Max(3)
-    private int statusId;
+    private Integer statusId;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
     public Livro(DadosCadastroLivros dados) {
         this.nome = dados.nome();
@@ -44,6 +49,7 @@ public class Livro {
         this.descricao = dados.descricao();
         this.categoria = dados.categoria();
         this.statusId = dados.statusId();
+
     }
 
     public void atualizarDados(DadosAtualizarLivro dados) {
@@ -63,4 +69,8 @@ public class Livro {
             this.statusId = dados.statusId();
         }
     }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
 }

@@ -1,0 +1,2 @@
+ALTER TABLE usuarios
+ADD nome VARCHAR2(255)

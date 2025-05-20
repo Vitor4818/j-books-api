@@ -32,7 +32,7 @@
                     .cors(cors -> cors.configurationSource(corsConfigurationSource())) // <--- adicionado aqui
                     .csrf(csrf -> csrf.disable())
                     .authorizeHttpRequests(auth -> auth
-                            .requestMatchers("/login", "/login/registrar", "/livros/12").permitAll()
+                            .requestMatchers("/login", "/usuario/registrar").permitAll()
                             .anyRequest().authenticated()
                     )
                     .sessionManagement(sess -> sess

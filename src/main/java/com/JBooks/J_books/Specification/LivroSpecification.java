@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LivroSpecification {
-    public static Specification<Livro> withFilters(LivroFilter filter){
+    public static Specification<Livro> withFilters(LivroFilter filter, Long usuarioId){
         return (root, query, cb)->{
             List<Predicate> predicates = new ArrayList<>();
 
@@ -35,10 +35,16 @@ public class LivroSpecification {
             if(filter.statusId() != null){
                 predicates.add(cb.equal(root.get("statusId"), filter.statusId()));
             }
+            
+            // Filtro pelo usuário logado
+            if (usuarioId != null) {
+                predicates.add(cb.equal(root.get("usuario").get("id"), usuarioId));
+            }
 
             // Combina todas as condições
             var arrayPredicates = predicates.toArray(new Predicate[0]);
             return cb.and(arrayPredicates);
         };
+
     }
 }
